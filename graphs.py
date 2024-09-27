@@ -1,27 +1,27 @@
+#Creating class graph and performing dfs and bfs
 class Graph:
     def __init__(self, directed=False):
-        self.graph = {}  # Dictionary to store the adjacency list
-        self.directed = directed  # Boolean flag to indicate if the graph is directed or not
+        self.graph = {}  
+        self.directed = directed 
 
     def addVertex(self, vertex):
-        # If the vertex is not already in the graph, add it with an empty adjacency list
+    
         if vertex not in self.graph:
             self.graph[vertex] = []
 
     def addEdge(self, src, dest):
-        # Ensure both source and destination vertices are in the graph
+        
         self.addVertex(src)
         self.addVertex(dest)
 
-        # Add the edge from src to dest
+        
         self.graph[src].append(dest)
 
-        # If the graph is undirected, also add the reverse edge from dest to src
+        
         if not self.directed:
             self.graph[dest].append(src)
 
     def displayGraph(self):
-        # Display the adjacency list of the graph
         for vertex in self.graph:
             print(f"{vertex} -> {self.graph[vertex]}")
 
@@ -50,9 +50,7 @@ class Graph:
 
 
     
-
-# Example usage
-G = Graph(directed=False)  # Create an undirected graph
+G = Graph(directed=False)  
 G.addEdge('A', 'B')
 G.addEdge('A', 'D')
 G.addEdge('B', 'C')
